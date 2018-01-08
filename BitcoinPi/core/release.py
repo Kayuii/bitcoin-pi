@@ -60,7 +60,7 @@ license = 'MIT'
 authors = {'Evan' : ('Evan Qingyan Liu','hmisty@gmail.com'),
 		  }
 
-author = 'The BitcoinPi Development Team'
+author = 'Evan Qingyan Liu'
 
 author_email = 'hmisty@gmail.com'
 
