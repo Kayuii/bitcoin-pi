@@ -5,28 +5,30 @@ Bitcoin cold wallet solution on raspberry pi zero.
 ![pizero.png](https://github.com/hmisty/bitcoin-pi/blob/master/pizero.jpg)
 
 Feature highlights:
+
 	- Private keys are never exposed to Internet, and never stored in raw format but always encrypted.
 	- Online side can watch only. Offline side will be only needed when signing transactions.
 	- Encrypted private keys in pi zero, and backuped on physical paper locked in safe cabinet.
 	- Fully open source and thoroughly transparent to you for you to check if any pit-falls. Zero dependency and off-the-shelf on raspberry pi therefore very easy to deploy.
 	- Very intuitive interface and fault-proof in design principles.
 
-# Design ideas
+## Design ideas
 
 Raspberry pi zero is a neat board (65mm x 30mm x 5mm) that is capable to run a full-fledged Linux system. It is able to bootstrap without any peripherial equipments such as keyboard, monitor, etc, which is called headless bootstrapping. With just a micro-USB to USB cable, it can be run in so-called OTG mode and connected through one-way SSH. Therefore, it would be nice to use pi zero as bitcoin offline wallet together with cold storage as an easy-to-use and safe solution.
 
 The solution is composed of three parts:
+
 	- Online side: running on your computer connected to Internet, for checking balance and creating transactions.
 	- Offline side: running on raspberry pi zero, for generating new keys and signing transactions.
 	- Cold backup: on paper that locked in your safe cabinet, for life-long saving your assets.
 
-# Use Cases
+## Use Cases
 
 ```
 $ pi help
 ```
 
-On pi zero:
+### On pi zero (offline side):
 
 * Create a new address:
 ```
@@ -34,6 +36,7 @@ $ pi new [alias] [memo]
 ```
 
 Features:
+
 	- use hardware entropy for real random seed to generate the key
 
 * List all addresses:
@@ -61,7 +64,7 @@ $ pi import [key] [alias] [memo]
 $ pi sign
 ```
 
-On computer:
+### On computer (online side):
 
 * List all addresses:
 ```
@@ -78,12 +81,14 @@ $ pi add [address] [alias] [memo]
 $ pi send [from alias] [to alias] [amount] [transaction fee]
 ```
 Features:
+
 	- direct address send/receive are delibrately unsupported for reducing mistakes
 	- if amount < unspent of the sender address, it will go back to the sender address by default (i.e. the transaction fee is zero by default)
 
-# The .pi Wallet File
+## The .pi Wallet File
 
 Features:
+
 	- human readable
 	- json format
 	- private keys are stored in BIP38 encrypted format
@@ -131,4 +136,8 @@ On computer, you have no keys (watch-only):
 ]
 ```
 
+## Copyright
+(c)2018 Evan Qingyan Liu. hmisty at gmail dot com.
 
+## License
+MIT License.
