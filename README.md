@@ -1,6 +1,6 @@
 # bitcoin-pi
 
-![pizero.png](pizero.png)
+![pizero.png](https://github.com/hmisty/bitcoin-pi/blob/master/pizero.jpg)
 
 # Design ideas
 
