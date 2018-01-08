@@ -132,7 +132,7 @@ On computer, you have no keys (watch-only):
 ```
 
 ## Copyright
-(c)2018 Evan Qingyan Liu. hmisty at gmail dot com.
+(c) 2018 Evan Qingyan Liu. hmisty at gmail dot com.
 
 ## License
 MIT License.
