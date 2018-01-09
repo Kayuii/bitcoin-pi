@@ -1,7 +1,5 @@
 # encoding: utf-8
-"""
-Bitcoin Pi: Bitcoin cold wallet on raspberry pi zero.
-"""
+"""Bitcoin Pi: Bitcoin cold wallet on raspberry pi zero."""
 #-----------------------------------------------------------------------------
 #  Copyright (c) 2018, Evan Qingyan Liu <hmisty@gmail.com>
 #
@@ -9,6 +7,7 @@ Bitcoin Pi: Bitcoin cold wallet on raspberry pi zero.
 #
 #  The full license is in the file LICENSE, distributed with this software.
 #-----------------------------------------------------------------------------
+from core import cli
 
 def start_pi(argv=None, **kwargs):
     """Launch Bitcoin Pi
@@ -30,5 +29,13 @@ def start_pi(argv=None, **kwargs):
     such as `config`.
     """
 
-    return
+    command = None
+    if len(argv) > 1:
+        command = argv[1]
+
+    if command is None or command == 'help':
+        cli.print_help()
+    else:
+        # at last
+        cli.print_unknown_command(command)
 

@@ -4,4 +4,4 @@ import sys
 from BitcoinPi import start_pi
 
 if __name__ == '__main__':
-	start_pi()
+	start_pi(sys.argv)
