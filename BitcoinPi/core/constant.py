@@ -9,7 +9,10 @@ Pre-definitions of constants.
 #
 #  The full license is in the file LICENSE, distributed with this software.
 #-----------------------------------------------------------------------------
+import os
+from os.path import expanduser
 
-wallet_file_loc = ['.', '~'] # current dir first, hoem dir second
+wallet_file_loc = [os.getcwd(), expanduser('~')] # current dir first, hoem dir second
 wallet_file_name = '.bitcoin.pi'
+wallet_file_backup = '.bitcoin.pi.bak'
 

@@ -35,6 +35,18 @@ def start_pi(argv=None, **kwargs):
 
     if command is None or command == 'help':
         cli.print_help()
+    elif command == 'new':
+        cli.create_new_address()
+    elif command == 'list':
+        cli.list_address()
+    elif command == 'ownership':
+        cli.verify_ownership()
+    elif command == 'export':
+        cli.export_key()
+    elif command == 'import':
+        cli.import_key()
+    elif command == 'sign':
+        cli.sign_message()
     else:
         # at last
         cli.print_unknown_command(command)
