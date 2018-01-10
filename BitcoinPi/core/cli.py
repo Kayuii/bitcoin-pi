@@ -37,12 +37,11 @@ def create_new_address():
 def list_address():
     wallet_data = load_wallet()
     if wallet_data is not None:
-        print wallet_data
         wallet_data = json.loads(wallet_data)
         for i, v in enumerate(wallet_data):
-            index = '[%s]' % i
-            leader = '[*]' if v['ownership'] == 'yes' else '[ ]'
-            print index, v['alias'], ':', v['address'], ':', v['memo']
+            own = '+' if v.get('ownership') == 'yes' else '-'
+            leader = '%s[%s]' % (own, i)
+            print leader, v['alias'], ':', v['address'], ':', v['memo']
 
 def verify_ownership():
     pass
