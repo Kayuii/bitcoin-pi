@@ -106,7 +106,7 @@ On pi zero, you have keys:
 		"address": "13Y3zqRRCCZGiJ6ACsprBgpfKphzyvvTyj",
 		"key": "6PnXHXHJMRWLzS1DiVitZqvYcXpB4SD7aCgnzD6EnYJmCXF8SKZK1PbjYB",
 		"memo": "the third account for demo",
-		"ownership": "yes" },
+		"ownership": "yes" }
 ]
 ```
 
@@ -127,7 +127,7 @@ On computer, you have no keys (watch-only):
 		"ownership": "yes" },
 	{ "alias": "hmisty",
 		"address": "18mDYwjpirsP1WFBknvpzoArghWyKBXAJQ",
-		"memo": "donation address" },
+		"memo": "donation address" }
 ]
 ```
 
