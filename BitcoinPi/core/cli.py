@@ -41,7 +41,8 @@ def list_address():
         for i, v in enumerate(wallet_data):
             own = '+' if v.get('ownership') == 'yes' else '-'
             leader = '%s[%s]' % (own, i)
-            print leader, v['alias'], ':', v['address'], ':', v['memo']
+            fmt = '{own}[{i}] {addr} [{alias}]: {memo}'
+            print fmt.format(own=own, i=i, alias=v['alias'], addr=v['address'], memo=v['memo'])
 
 def verify_ownership():
     pass
