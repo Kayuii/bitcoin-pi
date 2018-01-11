@@ -11,6 +11,7 @@ from __future__ import print_function
 
 import time
 from wallet import *
+from ..bitcoin import *
 
 def print_help():
     """
@@ -54,8 +55,7 @@ def verify_ownership():
         for i, v in enumerate(wallet_data):
             out = 'checking your ownership of {addr} [{alias}]... '.format(addr=v['address'], alias=v['alias'])
             print(out, end='')
-            time.sleep(0.5)
-            own = 'yes'
+            own = 'yes' if verify_privkey(v['address'], v['key']) else 'no'
             out = own
             print(out)
             v['ownership'] = own
