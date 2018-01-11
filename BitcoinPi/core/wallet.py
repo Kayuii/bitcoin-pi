@@ -8,6 +8,7 @@
 #  The full license is in the file LICENSE, distributed with this software.
 #-----------------------------------------------------------------------------
 import os
+import json
 import shutil
 from constant import *
 
@@ -25,17 +26,22 @@ def load_wallet():
     If not found, seek home dir.
     If not found still, raise error.
     """
-    wallet_data = None
+    global wallet_filepath
+
+    data = None
     for loc in wallet_file_loc:
         filepath = os.path.join(loc, wallet_file_name)
         if os.path.exists(filepath):
             wallet_filepath = filepath
             print 'Using', filepath, '.'
             with open(filepath, 'r') as f:
-                wallet_data = f.read()
+                data = f.read()
 
-    if wallet_data == None:
+    if data is None:
         print 'No wallet found. Execute "pi new" to create one?'
+        wallet_data = None
+    else:
+        wallet_data = json.loads(data)
 
     return wallet_data
 
@@ -45,15 +51,24 @@ def save_wallet(wallet_data):
     Returns filepath of the saved wallet.
     """
     filepath = get_wallet_filepath()
+
+    data = None
+    if wallet_data is None:
+        print 'Nothing to save.'
+        return
+    else:
+        data = json.dumps(wallet_data)
+
     if os.path.exists(filepath):
+        wallet_file_backup = filepath + wallet_file_backup_suffix
         print 'Backup existing wallet file', filepath, 'to', wallet_file_backup, '.'
         shutil.copyfile(filepath, wallet_file_backup)
         with open(filepath, 'w') as f:
-            f.write(wallet_data)
+            f.write(data)
     else:
         print 'Create a new wallet file', filepath
         with open(filepath, 'w') as f:
-            f.write(wallet_data)
+            f.write(data)
 
     print 'Wallet', filepath, 'successfully saved.'
     return filepath
